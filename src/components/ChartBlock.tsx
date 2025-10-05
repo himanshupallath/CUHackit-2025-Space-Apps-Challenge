@@ -3,7 +3,7 @@ import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, Cartesia
 import type { Plan } from "@/data/plans";
 import { plans } from "@/data/plans";
 import tempTimelapse from "@/assets/world_temperature_timelapse.mp4";
-import cmMap from "@/assets/CM_Map.mp4";
+import cmMap from "@/assets/CM_map.mp4";
 import wildfiresImg from "@/assets/wildfires.jpg";
 import floodsImg from "@/assets/floods.jpg";
 
