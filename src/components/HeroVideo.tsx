@@ -9,7 +9,7 @@ interface HeroVideoProps {
 
 export const HeroVideo = ({ title, subtitle }: HeroVideoProps) => {
   return (
-    <div className="relative h-[80vh] min-h-[600px] w-full overflow-hidden">
+    <div className="relative w-full overflow-visible">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
@@ -20,8 +20,8 @@ export const HeroVideo = ({ title, subtitle }: HeroVideoProps) => {
         <div className="absolute inset-0 bg-gradient-hero" />
       </div>
 
-      {/* Content */}
-  <div className="relative h-full flex flex-col items-center text-center px-4 pt-12 sm:pt-12 lg:pt-16">
+    {/* Content */}
+  <div className="relative flex flex-col items-center text-center px-4 pt-12 sm:pt-12 lg:pt-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export const HeroVideo = ({ title, subtitle }: HeroVideoProps) => {
         <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-glow bg-card/10 backdrop-blur-sm">
             <div className="w-full aspect-video">
               <video
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 autoPlay
                 muted
                 loop
