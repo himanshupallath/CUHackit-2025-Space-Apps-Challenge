@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import earthHero from "@/assets/earth_hero.jpg";
 import worldTimelapse from "@/assets/world_temperature_timelapse.mp4";
 
@@ -9,7 +10,7 @@ interface HeroVideoProps {
 
 export const HeroVideo = ({ title, subtitle }: HeroVideoProps) => {
   return (
-    <div className="relative w-full overflow-visible">
+    <div className="relative h-[80vh] min-h-[600px] w-full overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
@@ -20,8 +21,8 @@ export const HeroVideo = ({ title, subtitle }: HeroVideoProps) => {
         <div className="absolute inset-0 bg-gradient-hero" />
       </div>
 
-    {/* Content */}
-  <div className="relative flex flex-col items-center text-center px-4 pt-12 sm:pt-12 lg:pt-16">
+      {/* Content */}
+  <div className="relative h-full flex flex-col items-center text-center px-4 pt-12 sm:pt-12 lg:pt-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -48,18 +49,21 @@ export const HeroVideo = ({ title, subtitle }: HeroVideoProps) => {
 
         >
         <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-glow bg-card/10 backdrop-blur-sm">
-            <div className="w-full aspect-video">
-              <video
-                className="w-full h-full object-contain"
-                autoPlay
-                muted
-                loop
-                playsInline
-              >
-                <source src={worldTimelapse} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+            <div className="w-full aspect-video relative">
+                <video
+                  ref={useRef<HTMLVideoElement | null>(null)}
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  controls
+                  loop
+                  playsInline
+                >
+                  <source src={worldTimelapse} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                {/* Native controls provide pause/rewind/progress and fullscreen on most browsers. */}
+              </div>
           </div>
         </motion.div>
       </div>
