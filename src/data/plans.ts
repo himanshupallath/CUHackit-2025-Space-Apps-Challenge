@@ -264,8 +264,8 @@ export const plans: Plan[] = [
       }
     ],
     gallery: [
-      { src: "/heatmap", caption: "Nighttime LST heat map of urban core" },
-      { src: "/green_roofs", caption: "Green roof retrofits cooling rooftops" }
+      { src: "/heatmapusa", caption: "Heatmap of USA" },
+      { src: "/coolmapusa", caption: "Cooler temp map of USA" }
     ],
     datasets: [
       {
@@ -338,21 +338,11 @@ export const plans: Plan[] = [
         id: "co-seasons",
         title: "Carbon Monoxide (March 2000 - October 2024)",
         type: "area",
-        data: [
-          { name: "2018", value: 0.18 },
-          { name: "2019", value: 0.17 },
-          { name: "2020", value: 0.21 },
-          { name: "2021", value: 0.20 },
-          { name: "2022", value: 0.19 },
-          { name: "2023", value: 0.22 },
-          { name: "2024", value: 0.20 },
-          { name: "2025", value: 0.19 }
-        ],
       }
     ],
     gallery: [
-      { src: "/co_plume", caption: "CO plume advection over region" },
-      { src: "/hepa", caption: "Portable HEPA filtration in homes and clinics" }
+      { src: "/cochart", caption: "CO plume advection over region" },
+      { src: "/comopitt", caption: "Portable HEPA filtration in homes and clinics" }
     ],
     datasets: [
       {
@@ -378,11 +368,11 @@ export const plans: Plan[] = [
       "Terra's record reveals expanding burn perimeters and flood footprints—lasting scars on ecosystems and communities.",
     doctorsNote:
       "I see new lesions across forests and fresh flood hematomas along rivers. The patient is healing, but recurrent injury is leaving scar tissue. We must prevent, buffer, and restore.",
-    keyStat: "Burned area +65% (select fire-prone ecoregions since 2000)",
+    keyStat: "From 2015 to 2021, extreme wet or dry events occurred ~4 times per year—up from ~3 per year previously.",
     vitals: [
-      { label: "Mean fire size", value: "+28%" },
-      { label: "Flood recurrence", value: "Every 2–4 yrs (hotspots)" },
-      { label: "Riparian loss", value: "−12% vegetative cover" }
+        { label: "Forest fire escalation", value: "2× tree cover loss vs. 2001" },  
+        { label: "US wildfire size", value: "+223% since 1984" },                   
+        { label: "Global burned area", value: "−24% (1998–2015)" }                  
     ],
     symptoms: [
       "Expanding burn perimeters with high-severity cores",
@@ -390,7 +380,7 @@ export const plans: Plan[] = [
       "Post-event erosion and water quality degradation"
     ],
     diagnosis:
-      "Warming, aridity, fuel loads, and development in floodplains amplify event scale and impact. Terra-era composites show persistent growth in scarred landscapes with slower vegetative recovery after severe disturbances.",
+        "My patient bears deep scars from repeated wildfires and floods. High fever from rising temperatures, chronic dryness, and heavy fuel buildup make fires burn hotter and longer, while unchecked development in floodplains worsens every surge of water. These wounds heal slowly, leaving lasting damage to forests, rivers, and communities.",
     prescriptions: [
       {
         label: "Fuel & Forest Management",
@@ -416,45 +406,29 @@ export const plans: Plan[] = [
     charts: [
       {
         id: "burned-area",
-        title: "Burned Area Trend (2000–2025)",
+        title: "Fires / Hotspots on 10/4/2025",
         type: "line",
-        unit: "km² (index)",
-        data: [
-          { name: "2000", value: 100 },
-          { name: "2005", value: 112 },
-          { name: "2010", value: 121 },
-          { name: "2015", value: 134 },
-          { name: "2020", value: 155 },
-          { name: "2025", value: 165 }
-        ]
       },
       {
         id: "flood-events",
-        title: "Flood Footprint Frequency (hotspot basins)",
+        title: "Global View of Flood Events",
         type: "bar",
-        unit: "events/5y",
-        data: [
-          { name: "2000–05", value: 6 },
-          { name: "2006–10", value: 7 },
-          { name: "2011–15", value: 9 },
-          { name: "2016–20", value: 11 },
-          { name: "2021–25", value: 12 }
-        ]
       }
     ],
     gallery: [
-      { src: "/burn_perimeter", caption: "High-severity burn perimeter (false color)" },
-      { src: "/flood_lines", caption: "Over-bank flood lines along river corridor" }
+      { src: "/fires_live", caption: "Top view of a live wildfire and ground scarring" },
+      { src: "/floods_live", caption: "Before & after a flood event" }
     ],
     datasets: [
       {
-        name: "Burned Area & Severity (Terra-era composites)",
-        description: "Fire perimeters and severity classes for trend analysis."
+        name: "NASA Fire Information for Resource Management System (FIRMS)",
+        link: "https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@0.0,0.0,3.0z",
+        description: "Global view of fire and hotpots."
       },
       {
-        name: "Flood Footprints / Inundation Maps",
-        description: "Event extents used to estimate recurrence and exposure.",
-        caveats: "Clouds and vegetation can mask water; use composites."
+        name: "NASA Worldview Flood (3-Day Window)",
+        link: "https://worldview.earthdata.nasa.gov/?v=-361.5587065076821,-178.4903663821837,260.63318370302585,148.8255782043516&l=Reference_Labels_15m(hidden),Reference_Features_15m(hidden),Coastlines_15m,MODIS_Combined_Flood_3-Day(disabled=3),MODIS_Combined_Flood_2-Day(hidden,disabled=3),VIIRS_NOAA20_CorrectedReflectance_TrueColor(hidden),VIIRS_SNPP_CorrectedReflectance_TrueColor(hidden),MODIS_Aqua_CorrectedReflectance_TrueColor(hidden),MODIS_Terra_CorrectedReflectance_TrueColor&lg=true&t=2022-01-17-T18%3A32%3A29Z",
+        description: "Global outline of flood events over a 3-day window.",
       }
     ],
     references: [

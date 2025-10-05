@@ -8,10 +8,10 @@ export const Navbar = () => {
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
             <Satellite className="h-6 w-6 text-primary transition-transform group-hover:rotate-12" />
-            <span className="text-lg font-semibold">Terra at 25</span>
+            <span className="text-lg font-semibold">Dr. Terra</span>
           </Link>
           <div className="text-sm text-muted-foreground">
-            Earth's Medical Chart
+            Earth's Medical Doctor
           </div>
         </div>
       </div>

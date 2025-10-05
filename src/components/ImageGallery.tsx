@@ -3,24 +3,24 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { motion } from "framer-motion";
 import type { Plan } from "@/data/plans";
-import heatmap from "@/assets/heatmap.jpg";
-import greenRoofs from "@/assets/green_roofs.jpg";
-import coPlume from "@/assets/co_plume.jpg";
-import hepa from "@/assets/hepa.jpg";
-import burnPerimeter from "@/assets/burn_perimeter.jpg";
-import floodLines from "@/assets/flood_lines.jpg";
+import heatmapusa from "@/assets/heatmapusa.jpg";
+import coolmapusa from "@/assets/coolmapusa.png";
+import cochart from "@/assets/CO_chart.jpg";
+import comopitt from "@/assets/coMopitt.jpg";
+import firesLive from "@/assets/top_view_wildfire.webp";
+import floodsLive from "@/assets/top_view_floods.webp";
 
 interface ImageGalleryProps {
   images: Plan["gallery"];
 }
 
 const imageMap: Record<string, string> = {
-  "/heatmap": heatmap,
-  "/green_roofs": greenRoofs,
-  "/co_plume": coPlume,
-  "/hepa": hepa,
-  "/burn_perimeter": burnPerimeter,
-  "/flood_lines": floodLines,
+  "/heatmapusa": heatmapusa,
+  "/coolmapusa": coolmapusa,
+  "/cochart": cochart,
+  "/comopitt": comopitt,
+  "/fires_live": firesLive,
+  "/floods_live": floodsLive,
 };
 
 export const ImageGallery = ({ images }: ImageGalleryProps) => {

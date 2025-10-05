@@ -11,8 +11,8 @@ const Index = () => {
       
       <main className="pt-16">
         <HeroVideo 
-          title="Terra at 25 — Earth's Changing Breath"
-          subtitle="Terra has watched Earth breathe for 25 years. This is her medical chart."
+          title="Dr. Terra — Diagnosing a Fevered Planet"
+          subtitle="Dr. Terra has watched Earth breathe for 25 years. This is her medical chart."
         />
         
         <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">

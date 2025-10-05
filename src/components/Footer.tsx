@@ -8,7 +8,7 @@ export const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Satellite className="h-5 w-5 text-primary" />
-              <span className="font-semibold">Terra at 25</span>
+              <span className="font-semibold">Terra</span>
             </div>
             <p className="text-sm text-muted-foreground">
               25 years of NASA Terra satellite observations, visualized as Earth's medical chart.
@@ -30,14 +30,14 @@ export const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">About</h3>
-            <p className="text-sm text-muted-foreground">
-              Data visualization project showcasing environmental monitoring through satellite observations.
+            <h3 className="font-semibold mb-4">Disclaimer</h3>
+            <p className="text-sm text-muted-foreground mt-3">
+              This website template was created with the assistance of Lovable AI. All information, charts, and images are sourced from publicly available internet resources.
             </p>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Terra at 25. Educational visualization project.
+          © {new Date().getFullYear()} Dr. Terra. Educational visualization project.
         </div>
       </div>
     </footer>

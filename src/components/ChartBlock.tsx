@@ -4,6 +4,8 @@ import type { Plan } from "@/data/plans";
 import { plans } from "@/data/plans";
 import tempTimelapse from "@/assets/world_temperature_timelapse.mp4";
 import cmMap from "@/assets/CM_map.mp4";
+import wildfiresImg from "@/assets/wildfires.jpg";
+import floodsImg from "@/assets/floods.jpg";
 
 interface ChartBlockProps {
   chart: Plan["charts"][0];
@@ -77,6 +79,24 @@ export const ChartBlock = ({ chart }: ChartBlockProps) => {
               Your browser does not support the video tag.
             </video>
           </div>
+        </div>
+      );
+    }
+
+    // If this is the burned-area chart, show the wildfires image
+    if (chart.id === "burned-area") {
+      return (
+        <div className="w-full h-full flex items-center justify-center">
+          <img src={wildfiresImg} alt="Wildfires" className="w-full h-full object-cover rounded-md" />
+        </div>
+      );
+    }
+
+    // If this is the flood-events chart, show the floods image
+    if (chart.id === "flood-events") {
+      return (
+        <div className="w-full h-full flex items-center justify-center">
+          <img src={floodsImg} alt="Flood events" className="w-full h-full object-cover rounded-md" />
         </div>
       );
     }
