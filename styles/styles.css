@@ -1,0 +1,26 @@
+:root { --bg:#0b0e12; --fg:#eaeef6; --muted:#a0a7b4; --teal:#39e6e1; --red:#ff5f73; --blue:#5fb3ff; }
+.gradio-container { max-width: 1200px !important; margin: 0 auto !important; }
+body { background: var(--bg); color: var(--fg); }
+
+/* Home visuals */
+.section { margin: 28px auto; text-align: center; }
+.hero { display:flex; flex-direction:column; gap:12px; padding:36px 0 8px 0; align-items:center; text-align:center; }
+.hero h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); line-height:1.1; margin:0; }
+.hero p { color: var(--muted); margin:0; font-size:1.05rem; }
+.pulse-badge { display:inline-flex; align-items:center; gap:10px; background: rgba(220,38,38,.15); color:#ffd8d8; border:1px solid rgba(220,38,38,.35); padding:6px 14px; border-radius:999px; font-weight:600; font-size:.95rem; }
+.pulse-dot { position:relative; width:10px; height:10px; }
+.pulse-dot::before, .pulse-dot::after { content:""; position:absolute; inset:0; border-radius:999px; background:#ff6b6b; }
+.pulse-dot::after { animation:pulse 1.6s ease-out infinite; opacity:.6; filter: blur(1px); }
+@keyframes pulse { 0%{transform:scale(1);opacity:.6;} 70%{transform:scale(2.2);opacity:0;} 100%{transform:scale(2.2);opacity:0;} }
+.card { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 18px; text-align:center; margin:0 auto; }
+.footer { color: var(--muted); font-size:.95rem; }
+.video-container { display:flex; flex-direction:column; align-items:center; width:100%; margin:0 auto; }
+
+/* Navbar-like tabs */
+#navtabs > .tab-nav { justify-content:center; gap:12px; border:none; }
+#navtabs .tabitem { padding: 0 !important; }
+#navtabs .tabitem button { border-radius: 999px !important; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--fg); padding: 10px 16px; font-weight: 700; }
+#navtabs .tabitem[aria-selected="true"] button { background: radial-gradient(120% 120% at 50% -20%, rgba(57,230,225,0.25), rgba(255,255,255,0.03)); border-color: rgba(57,230,225,0.66); box-shadow: 0 0 0 1px rgba(57,230,225,0.35), 0 0 24px rgba(57,230,225,0.25) inset; }
+
+/* Dashboard panel edges */
+.panel-edge { box-shadow: 0 0 0 2px rgba(95,179,255,.28) inset; border-radius: 16px; }
