@@ -1,4 +1,0 @@
-#Add all the common gitignore files
-pycache__/
-__pycache__/
-env
