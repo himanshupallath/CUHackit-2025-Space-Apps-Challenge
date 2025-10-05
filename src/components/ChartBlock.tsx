@@ -1,5 +1,8 @@
 import { Card } from "@/components/ui/card";
-import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import {
+  LineChart, Line, AreaChart, Area, BarChart, Bar,
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
+} from "recharts";
 import type { Plan } from "@/data/plans";
 import { plans } from "@/data/plans";
 import tempTimelapse from "@/assets/world_temperature_timelapse.mp4";
@@ -12,10 +15,11 @@ interface ChartBlockProps {
 }
 
 export const ChartBlock = ({ chart }: ChartBlockProps) => {
+  const isMediaBlock = chart.id === "co-seasons" || chart.id === "canopy-change";
+
   const renderChart = () => {
     // If this chart is part of the LOTI pair, merge the lowess + annual series
     if (chart.id === "loti-lowess" || chart.id === "loti-annual") {
-      // Prefer embedded series on the chart (data-side merge). Fallback to scanning plans for separate chart entries.
       const lowessSeries = (chart.series && chart.series.lowess) || chart.data;
       const annualSeries = chart.series && chart.series.annual;
 
@@ -69,21 +73,44 @@ export const ChartBlock = ({ chart }: ChartBlockProps) => {
       fontSize: 12,
     };
 
-    // If this is the CO seasons chart, render the CM_Map.mov video instead of an area chart
+    // --- MEDIA BLOCKS (local videos) ---
     if (chart.id === "co-seasons") {
       return (
         <div className="w-full h-full flex items-center justify-center px-2">
           <div className="w-full max-w-5xl h-full">
-            <video className="w-full h-full object-cover rounded-md" autoPlay muted loop playsInline>
+            <video
+              className="w-full h-full object-cover rounded-md"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            >
               <source src={cmMap} type="video/mp4" />
-              Your browser does not support the video tag.
             </video>
           </div>
         </div>
       );
     }
 
-    // If this is the burned-area chart, show the wildfires image
+    if (chart.id === "canopy-change") {
+      return (
+        <div className="w-full h-full flex items-center justify-center">
+          <video
+            className="w-full h-full object-cover rounded-md"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          >
+            <source src={tempTimelapse} type="video/mp4" />
+          </video>
+        </div>
+      );
+    }
+
+    // Static images for other special chart IDs
     if (chart.id === "burned-area") {
       return (
         <div className="w-full h-full flex items-center justify-center">
@@ -92,7 +119,6 @@ export const ChartBlock = ({ chart }: ChartBlockProps) => {
       );
     }
 
-    // If this is the flood-events chart, show the floods image
     if (chart.id === "flood-events") {
       return (
         <div className="w-full h-full flex items-center justify-center">
@@ -101,18 +127,7 @@ export const ChartBlock = ({ chart }: ChartBlockProps) => {
       );
     }
 
-    // If this is the canopy-change chart, render the timelapse video instead of a bar chart
-    if (chart.id === "canopy-change") {
-      return (
-        <div className="w-full h-full flex items-center justify-center">
-          <video className="w-full h-full object-cover rounded-md" autoPlay muted loop playsInline>
-            <source src={tempTimelapse} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      );
-    }
-
+    // Regular charts
     switch (chart.type) {
       case "line":
         return (
@@ -120,55 +135,55 @@ export const ChartBlock = ({ chart }: ChartBlockProps) => {
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis dataKey="name" {...axisProps} />
             <YAxis {...axisProps} />
-            <Tooltip 
-              contentStyle={{ 
-                backgroundColor: "hsl(var(--card))", 
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "hsl(var(--card))",
                 border: "1px solid hsl(var(--border))",
                 borderRadius: "8px"
               }}
             />
-            <Line 
-              type="monotone" 
-              dataKey="value" 
-              stroke="hsl(var(--chart-1))" 
+            <Line
+              type="monotone"
+              dataKey="value"
+              stroke="hsl(var(--chart-1))"
               strokeWidth={3}
               dot={{ fill: "hsl(var(--chart-1))", r: 4 }}
             />
           </LineChart>
         );
-      
+
       case "area":
         return (
           <AreaChart {...commonProps}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis dataKey="name" {...axisProps} />
             <YAxis {...axisProps} />
-            <Tooltip 
-              contentStyle={{ 
-                backgroundColor: "hsl(var(--card))", 
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "hsl(var(--card))",
                 border: "1px solid hsl(var(--border))",
                 borderRadius: "8px"
               }}
             />
-            <Area 
-              type="monotone" 
-              dataKey="value" 
-              stroke="hsl(var(--chart-2))" 
+            <Area
+              type="monotone"
+              dataKey="value"
+              stroke="hsl(var(--chart-2))"
               fill="hsl(var(--chart-2) / 0.3)"
               strokeWidth={2}
             />
           </AreaChart>
         );
-      
+
       case "bar":
         return (
           <BarChart {...commonProps}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis dataKey="name" {...axisProps} />
             <YAxis {...axisProps} />
-            <Tooltip 
-              contentStyle={{ 
-                backgroundColor: "hsl(var(--card))", 
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "hsl(var(--card))",
                 border: "1px solid hsl(var(--border))",
                 borderRadius: "8px"
               }}
@@ -186,15 +201,20 @@ export const ChartBlock = ({ chart }: ChartBlockProps) => {
       {chart.id !== "canopy-change" && chart.unit && (
         <p className="text-sm text-muted-foreground mb-4">Unit: {chart.unit}</p>
       )}
-      <div className={
-        chart.id === "canopy-change" || chart.id === "co-seasons"
-          ? "h-[480px] sm:h-[540px]"
-          : "h-64"
-      }>
-        <ResponsiveContainer width="100%" height="100%">
+
+      {/* For media blocks, DO NOT wrap in ResponsiveContainer */}
+      {isMediaBlock ? (
+        <div className="h-[480px] sm:h-[540px]">
           {renderChart()}
-        </ResponsiveContainer>
-      </div>
+        </div>
+      ) : (
+        <div className="h-64">
+          <ResponsiveContainer width="100%" height="100%">
+            {renderChart()}
+          </ResponsiveContainer>
+        </div>
+      )}
+
       {chart.note && (
         <p className="text-xs text-muted-foreground mt-4 italic">{chart.note}</p>
       )}
