@@ -2,8 +2,8 @@ import { Card } from "@/components/ui/card";
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import type { Plan } from "@/data/plans";
 import { plans } from "@/data/plans";
-import tempTimelapse from "@/assets/world_temperature_timelapse.mp4";
-import cmMap from "@/assets/CM_map.mp4";
+import tempTimelapse from "@/assets/world_Temperature_Timelapse.mp4";
+import cmMap from "@/assets/CM_Map.mp4";
 import wildfiresImg from "@/assets/wildfires.jpg";
 import floodsImg from "@/assets/floods.jpg";
 
@@ -69,7 +69,7 @@ export const ChartBlock = ({ chart }: ChartBlockProps) => {
       fontSize: 12,
     };
 
-    // If this is the CO seasons chart, render the CM_map.mov video instead of an area chart
+    // If this is the CO seasons chart, render the CM_Map.mov video instead of an area chart
     if (chart.id === "co-seasons") {
       return (
         <div className="w-full h-full flex items-center justify-center px-2">

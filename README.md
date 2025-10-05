@@ -30,7 +30,7 @@ Root
 - `package.json`, `vite.config.ts`, `tsconfig.json`, `README.md` (this file)
 
 src/
-- `assets/` – static images and videos (e.g., `world_temperature_timelapse.mp4`, `CM_map.mp4`)
+- `assets/` – static images and videos (e.g., `world_Temperature_Timelapse.mp4`, `CM_Map.mp4`)
 - `components/` – UI components
 	- `ui/` – shadcn-like UI primitives (toasts, buttons, etc.)
 	- `HeroVideo.tsx` – homepage hero with background image and video overlay
