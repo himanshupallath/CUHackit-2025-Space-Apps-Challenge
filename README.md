@@ -1,5 +1,7 @@
 CUHackit-2025-Space-Apps-Challenge
 
+Live Website Link: https://dr-terra.vercel.app/
+
 Overview
 ========
 
