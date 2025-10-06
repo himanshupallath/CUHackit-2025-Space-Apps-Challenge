@@ -13,7 +13,7 @@ const Index = () => {
         <HeroVideo 
           title="Dr. Terra — Diagnosing a Fevered Planet"
           subtitle="Dr. Terra has watched Earth breathe for 25 years. This is her medical report."
-          driveLink="https://drive.google.com/file/d/1cDJ68JQUuQGRhbBohTMe-QfR6sR9qP3s/preview"
+          driveLink="https://drive.google.com/file/d/10Ka4_aXi7abAAzKpdI9gM1OqLm7SQT-j/preview"
         />
         
         <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
